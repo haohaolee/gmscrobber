@@ -289,6 +289,53 @@ var Scrobbler = function(){
 			},
 			true);
 		},
+    //song.tags. [歌曲标签](http://cn.last.fm/api/show/track.addTags), 逗号分隔, 最多 10 个标签
+    //type. 标签对象: track, artist, album
+    addTags: function(song, type){
+      song = song || this.song;
+      var method = /(track|artist|album)/.test(type) ? type : 'track';
+      this.ajax({
+				method: method + ".addTags", 
+				track: song.title,
+				artist: song.artist,
+        tag: song.tags,
+				_sig:""
+			},
+			function(d){
+				//log(JSON.stringify(d))
+			},
+			true);
+    },
+    getTags: function(song, type){
+      song = song || this.song;
+      var method = /(track|artist|album)/.test(type) ? type : 'track';
+      this.ajax({
+				method: method + ".getTags", 
+				track: song.title,
+				artist: song.artist,
+        tag: song.tags,
+				_sig:""
+			},
+			function(d){
+				//log(JSON.stringify(d))
+			},
+			true);
+    },
+    getTopTags: function(song, type){
+      song = song || this.song;
+      var method = /(track|artist|album)/.test(type) ? type : 'track';
+      this.ajax({
+				method: method + ".getTopTags", 
+				track: song.title,
+				artist: song.artist,
+        tag: song.tags,
+				_sig:""
+			},
+			function(d){
+				//log(JSON.stringify(d))
+			},
+			true);
+    },
 		
 	//play control
     /**
