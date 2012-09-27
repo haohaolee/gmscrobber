@@ -137,7 +137,7 @@ var Scrobbler = function(){
 			this.song = song; //song: {title: "", artist: "", duration: "", album: ""}
 			this.timestamp = Math.floor(new Date().getTime()/1000);
 			this.info = {iscrobble: false, offset: 0};
-			this.play();
+			this.play(song.playTime);
 			//log(JSON.stringify(song));
 			log(song.title + " now playing");
 			this.ajax({
