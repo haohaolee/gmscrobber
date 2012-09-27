@@ -303,11 +303,11 @@ var Scrobbler = function(){
 			if(!rpt){
 				rpt = Math.floor(new Date().getTime()/1000) - this.timestamp;
 			}
-      rt = (Math.min(that.song.duration*this.scrate, 240) - rpt)*1000;//remain time
-			if(!this.type && !this.info.iscrobble){
-				clearTimeout(_timer);
-        log('will scrobbler in: ' + rt/1000 + ' seconds')
-				_timer = setTimeout(function(){that.scrobble()}, rt);
+			rt = (Math.min(that.song.duration*this.scrate, 240) - rpt)*1000;//remain time
+			if(rt > 0 && !this.type && !this.info.iscrobble){
+					clearTimeout(_timer);
+					log('will scrobbler in: ' + rt/1000 + ' seconds');
+					_timer = setTimeout(function(){that.scrobble()}, rt);
 			}
 		},
 		pause: function(){
