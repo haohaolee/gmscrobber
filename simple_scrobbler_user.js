@@ -109,8 +109,12 @@ var Scrobbler = function(){
             this.nowPlaying(song);
           }else{
             //log(this.state)
-            if(song.playTime != oldSong.playTime && this.state != 'play'){
+            if(song.playTime > oldSong.playTime && this.state != 'play'){
               this.play(song.playTime + this.info.offset);
+            }else if(song.playTime < oldSong.playTime){
+              // replayed or cycled the same song? scrobble again
+              this.nowPlaying(song);
+            }
             }else if(song.playTime == oldSong.playTime && (this.state != 'buffer' || this.state != 'pause')){
               this.buffer();
             }
