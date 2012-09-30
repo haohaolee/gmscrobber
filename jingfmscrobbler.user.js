@@ -5,11 +5,10 @@
 // @description  scrobble songs from jing.fm to last.fm
 // @match      http://jing.fm/*
 // @require    https://raw.github.com/haohaolee/gmscrobber/master/simple_scrobbler_user.js
-// @license    FreeBSD License. Portions dual-licensed under the MIT (Expat) License and 
-GPLv2.
+// @license    FreeBSD License. Portions dual-licensed under the MIT (Expat) License and GPLv2.
 // ==/UserScript==
 
-log = GM_log;
+//log = GM_log;
 
 var init = function(){
   log('Start jing.fm scrobbling');
