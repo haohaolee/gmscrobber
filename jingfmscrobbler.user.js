@@ -8,7 +8,7 @@
 // @license    FreeBSD License. Portions dual-licensed under the MIT (Expat) License and GPLv2.
 // ==/UserScript==
 
-log = GM_log;
+//log = GM_log;
 
 var init = function(){
   log('Start jing.fm scrobbling');
